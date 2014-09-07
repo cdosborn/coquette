@@ -22,6 +22,10 @@
       return this._buttonListener.isPressed(button);
     },
 
+    getEvents: function() {
+      return this._buttonListener.getEvents();
+    },
+
     getMousePosition: function() {
       return this._mouseMoveListener.getMousePosition();
     },
@@ -126,26 +130,32 @@
     var self = this;
     this._buttonDownState = {};
     this._buttonPressedState = {};
+    this._events = [];
 
     keyboardReceiver.addEventListener('keydown', function(e) {
+      self._events.push(e);
       self._down(e.keyCode);
     }, false);
 
     keyboardReceiver.addEventListener('keyup', function(e) {
+      self._events.push(e);
       self._up(e.keyCode);
     }, false);
 
     canvas.addEventListener('mousedown', function(e) {
+      self._events.push(e);
       self._down(self._getMouseButton(e));
     }, false);
 
     canvas.addEventListener('mouseup', function(e) {
+      self._events.push(e);
       self._up(self._getMouseButton(e));
     }, false);
   };
 
   ButtonListener.prototype = {
     update: function() {
+      this._events.length = 0;
       for (var i in this._buttonPressedState) {
         if (this._buttonPressedState[i] === true) { // tick passed and press event in progress
           this._buttonPressedState[i] = false; // end key press
@@ -173,6 +183,10 @@
 
     isPressed: function(button) {
       return this._buttonPressedState[button] || false;
+    },
+
+    getEvents: function() {
+      return this._events;
     },
 
     _getMouseButton: function(e) {
