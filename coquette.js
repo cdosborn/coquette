@@ -774,6 +774,8 @@
     canvas.height = hView;
     this._viewSize = { x:wView, y:hView };
     this._viewCenter = { x: this._viewSize.x / 2, y: this._viewSize.y / 2 };
+    this._target = undefined;
+
   };
 
   Renderer.prototype = {
@@ -790,8 +792,18 @@
     },
 
     setViewCenter: function(pos) {
-      this._viewCenter.x = pos.x; 
+      this._viewCenter.x = pos.x;
       this._viewCenter.y = pos.y;
+    },
+
+    follow: function(pos) {
+      this._target = pos;
+      this._viewCenter.x = pos.x;
+      this._viewCenter.y = pos.y;
+    },
+
+    unfollow: function() {
+      this._target = undefined;
     },
 
     setBackground: function(color) {
@@ -800,6 +812,12 @@
 
     update: function(interval) {
       var ctx = this.getCtx();
+
+      if (this._target) {
+          this._viewCenter.x = this._target.x;
+          this._viewCenter.y = this._target.y;
+      }
+
       var viewTranslate = viewOffset(this._viewCenter, this._viewSize);
 
       ctx.translate(viewTranslate.x, viewTranslate.y);
