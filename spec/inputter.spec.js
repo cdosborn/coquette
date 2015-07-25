@@ -16,10 +16,17 @@ var InputReceiver = function() {
   };
 
   this.getBoundingClientRect = function() {
-      return {
-          left: 0,
-          top: 0
-      }
+    return {
+      left: 0,
+      top: 0
+    }
+  };
+
+  // mock scroll state, body borders for element position tests
+  this.nodeType = 9;
+  this.ownerDocument = {
+    defaultView: {},
+    body: { scrollLeft: 0, scrollTop: 0, clientLeft: 0, clientTop: 0 }
   };
 };
 
@@ -322,11 +329,11 @@ describe('inputter', function() {
         });
 
         it('should return mouse positions relative to canvas', function(done) {
-          canvas.getBoundingClientRect = function { 
-              return {
-                  x : 20,
-                  y : 15
-              }
+          canvas.getBoundingClientRect = function() {
+            return {
+              left : 20,
+              top : 15
+            }
           }
 
           // remake to recalc elementPosition: will be fine in real code

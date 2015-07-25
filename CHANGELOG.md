@@ -1,3 +1,11 @@
+0.5.8 / 2014-12-16
+
+[FIX] Mouse coordinates are now correct when window is scrolled.
+
+0.5.7 / 2014-12-15
+
+[FIX] Mouse coordinates are now correct for a canvas that has a parent that is "position:relative".  (Thanks, cdosborn.)
+
 0.5.5 / 2014-12-15
 
 [NEW] Add Racecar demo.

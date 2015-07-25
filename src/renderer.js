@@ -54,6 +54,10 @@
       this._backgroundColor = color;
     },
 
+    setBackground: function(color) {
+      this._backgroundColor = color;
+    },
+
     update: function(interval) {
       var ctx = this.getCtx();
 
@@ -67,17 +71,17 @@
       ctx.translate(viewTranslate.x, viewTranslate.y);
 
       // draw background
+      var viewArgs = [
+            this._viewCenter.x - this._viewSize.x / 2,
+            this._viewCenter.y - this._viewSize.y / 2,
+            this._viewSize.x,
+            this._viewSize.y 
+      ]
       if (this._backgroundColor !== undefined) {
           ctx.fillStyle = this._backgroundColor;
-          ctx.fillRect(this._viewCenter.x - this._viewSize.x / 2,
-                       this._viewCenter.y - this._viewSize.y / 2,
-                       this._viewSize.x,
-                       this._viewSize.y);
+          ctx.fillRect.apply(ctx, viewArgs);
       } else {
-          ctx.clearRect(this._viewCenter.x - this._viewSize.x / 2,
-                       this._viewCenter.y - this._viewSize.y / 2,
-                       this._viewSize.x,
-                       this._viewSize.y);
+          ctx.clearRect.apply(ctx, viewArgs);
       }
 
       // draw game and entities
