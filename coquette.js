@@ -15,8 +15,8 @@
       }
 
       self.entities.update(interval)
-      self.collider.update(interval);
       self.renderer.update(interval);
+      self.collider.update(interval);
       self.inputter.update();
     });
   };
@@ -790,10 +790,6 @@
 
     unfollow: function() {
       this._target = undefined;
-    },
-
-    setBackground: function(color) {
-      this._backgroundColor = color;
     },
 
     setBackground: function(color) {

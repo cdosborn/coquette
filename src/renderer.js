@@ -54,10 +54,6 @@
       this._backgroundColor = color;
     },
 
-    setBackground: function(color) {
-      this._backgroundColor = color;
-    },
-
     update: function(interval) {
       var ctx = this.getCtx();
 
