@@ -1,0 +1,17 @@
+{
+  "name": "coquette",
+  "main": "coquette.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cdosborn/coquette",
+  "authors": [
+    "Connor Osborn <cdosborn@uw.edu>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
