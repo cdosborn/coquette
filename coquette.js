@@ -741,12 +741,7 @@
 })(typeof exports === 'undefined' ? this.Coquette : exports);
 
 ;(function(exports) {
-  var Maths;
-  if(typeof module !== 'undefined' && module.exports) { // node
-    Maths = require('./collider').Collider.Maths;
-  } else { // browser
-    Maths = Coquette.Collider.Maths;
-  }
+  var Maths = Coquette.Collider.Maths;
 
   var Renderer = function(coquette, game, canvas, wView, hView, backgroundColor) {
     this.c = coquette;
