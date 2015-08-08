@@ -1,14 +1,14 @@
 ;(function(exports) {
   var Coquette = function(game, canvasId, width, height, backgroundColor, autoFocus) {
     var canvas = document.getElementById(canvasId);
-    this.renderer = new Coquette.Renderer(this, game, canvas, width, height, backgroundColor);
-    this.inputter = new Coquette.Inputter(this, canvas, autoFocus);
-    this.entities = new Coquette.Entities(this, game);
-    this.runner = new Coquette.Runner(this);
-    this.collider = new Coquette.Collider(this);
+    this.renderer = new exports.Renderer(this, game, canvas, width, height, backgroundColor);
+    this.inputter = new exports.Inputter(this, canvas, autoFocus);
+    this.entities = new exports.Entities(this, game);
+    this.runner = new exports.Runner(this);
+    this.collider = new exports.Collider(this);
 
     var self = this;
-    this.ticker = new Coquette.Ticker(this, function(interval) {
+    this.ticker = new exports.Ticker(this, function(interval) {
       self.runner.update(interval);
       if (game.update !== undefined) {
         game.update(interval);
@@ -741,7 +741,7 @@
 })(typeof exports === 'undefined' ? this.Coquette : exports);
 
 ;(function(exports) {
-  var Maths = Coquette.Collider.Maths;
+  var Maths = exports.Collider.Maths;
 
   var Renderer = function(coquette, game, canvas, wView, hView, backgroundColor) {
     this.c = coquette;
