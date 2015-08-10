@@ -327,4 +327,4 @@
 
   exports.Collider = Collider;
   exports.Collider.Maths = Maths;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);

@@ -49,4 +49,4 @@
   };
 
   exports.Entities = Entities;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);

@@ -292,4 +292,4 @@
   };
 
   exports.Inputter = Inputter;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);

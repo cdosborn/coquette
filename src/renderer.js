@@ -1,5 +1,5 @@
 ;(function(exports) {
-  var Maths = Coquette.Collider.Maths;
+  var Maths = exports.Collider.Maths;
 
   var Renderer = function(coquette, game, canvas, wView, hView, backgroundColor) {
     this.c = coquette;
@@ -124,4 +124,4 @@
   };
 
   exports.Renderer = Renderer;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);

@@ -21,5 +21,9 @@
     });
   };
 
-  exports.Coquette = Coquette;
+  if (typeof module !== "undefined")
+      module.exports = Coquette;
+  else
+      exports.Coquette = Coquette;
+
 })(this);

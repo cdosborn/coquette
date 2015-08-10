@@ -21,7 +21,11 @@
     });
   };
 
-  exports.Coquette = Coquette;
+  if (typeof module !== "undefined")
+      module.exports = Coquette;
+  else
+      exports.Coquette = Coquette;
+
 })(this);
 
 ;(function(exports) {
@@ -353,7 +357,7 @@
 
   exports.Collider = Collider;
   exports.Collider.Maths = Maths;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);
 
 ;(function(exports) {
   var Inputter = function(coquette, canvas, autoFocus) {
@@ -649,7 +653,7 @@
   };
 
   exports.Inputter = Inputter;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);
 
 ;(function(exports) {
   function Runner(coquette) {
@@ -678,7 +682,7 @@
   };
 
   exports.Runner = Runner;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);
 
 ;(function(exports) {
   var interval = 16;
@@ -738,10 +742,10 @@
   };
 
   exports.Ticker = Ticker;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);
 
 ;(function(exports) {
-  var Maths = Coquette.Collider.Maths;
+  var Maths = exports.Collider.Maths;
 
   var Renderer = function(coquette, game, canvas, wView, hView, backgroundColor) {
     this.c = coquette;
@@ -866,7 +870,7 @@
   };
 
   exports.Renderer = Renderer;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);
 
 ;(function(exports) {
   function Entities(coquette, game) {
@@ -919,5 +923,5 @@
   };
 
   exports.Entities = Entities;
-})(typeof exports === 'undefined' ? this.Coquette : exports);
+})(typeof module === 'undefined' ? this.Coquette : module.exports);
 
